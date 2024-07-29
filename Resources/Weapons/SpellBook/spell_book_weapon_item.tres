@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="WeaponItem" load_steps=3 format=3 uid="uid://cp5be7uk2c8sc"]
+
+[ext_resource type="Texture2D" uid="uid://cbp7488du65wn" path="res://Assets/Sprites/Items/Weapons/Book/SpriteInHand.png" id="1_t80nk"]
+[ext_resource type="Script" path="res://Scripts/WeaponItem.gd" id="1_uo4p6"]
+
+[resource]
+script = ExtResource("1_uo4p6")
+in_hand_texture = ExtResource("1_t80nk")
+attack_type = "Magic"
+left_attachment_position = Vector2(-11, 2)
+right_attachment_position = Vector2(11, 2)
+front_attachment_position = Vector2(0, 11)
+back_attachment_position = Vector2(0, -10)
+left_rotation = -90
+right_rotation = 90
+front_rotation = 180
+back_rotation = 0
+left_z_index = 0
+right_z_index = 0
+front_z_index = 0
+back_z_index = 0

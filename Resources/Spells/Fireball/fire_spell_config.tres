@@ -1,0 +1,15 @@
+[gd_resource type="Resource" script_class="SpellConfig" load_steps=4 format=3 uid="uid://dlfhhfusa46s3"]
+
+[ext_resource type="Shape2D" uid="uid://dsik4ge5w5e0r" path="res://Resources/Spells/Fireball/fireball_collision_shape.tres" id="1_2nv3e"]
+[ext_resource type="Script" path="res://Scripts/spell_config.gd" id="2_exovw"]
+[ext_resource type="Texture2D" uid="uid://ctbbst0mf42in" path="res://Assets/Sprites/Items/Scroll/ScrollFire.png" id="3_a1iu3"]
+
+[resource]
+script = ExtResource("2_exovw")
+speed = 40.0
+collision_shape = ExtResource("1_2nv3e")
+spell_name = "Fireball"
+initial_rotation = 90
+ui_texture = ExtResource("3_a1iu3")
+initial_cooldown = 2.0
+damage = 15

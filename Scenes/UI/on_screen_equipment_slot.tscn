@@ -1,0 +1,71 @@
+[gd_scene load_steps=4 format=3 uid="uid://cukfsh7buem62"]
+
+[ext_resource type="Script" path="res://Scripts/on_screen_equipment_slot.gd" id="1_0jyqr"]
+[ext_resource type="Texture2D" uid="uid://b5wqsixkothn8" path="res://Assets/Sprites/HUD/Dialog/FacesetBox.png" id="1_3vyxs"]
+[ext_resource type="Theme" uid="uid://dd5r6f3470kpi" path="res://Resources/UI/theme.tres" id="2_kseyd"]
+
+[node name="OnScreenEquipmentSlot" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_0jyqr")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("1_3vyxs")
+patch_margin_left = 8
+patch_margin_top = 8
+patch_margin_right = 8
+patch_margin_bottom = 8
+
+[node name="StacksLabel" type="Label" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.917
+anchor_top = 0.95
+anchor_right = 0.917
+anchor_bottom = 0.95
+offset_left = -19.02
+offset_top = -23.0
+offset_right = -0.0200043
+grow_horizontal = 0
+grow_vertical = 0
+theme = ExtResource("2_kseyd")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 5.0
+offset_bottom = -5.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/CenterContainer"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="ColorRect" type="ColorRect" parent="NinePatchRect"]
+visible = false
+layout_mode = 0
+offset_left = 10.0
+offset_top = 9.0
+offset_right = 50.0
+offset_bottom = 9.0
+color = Color(1, 0.458824, 1, 0.392157)
+
+[node name="SlotLabel" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("2_kseyd")
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_constants/outline_size = 6
+theme_override_font_sizes/font_size = 12
+text = "R HAND"
+horizontal_alignment = 1
+vertical_alignment = 1

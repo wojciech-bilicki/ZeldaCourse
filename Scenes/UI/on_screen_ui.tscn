@@ -1,0 +1,55 @@
+[gd_scene load_steps=5 format=3 uid="uid://blr3i3xqxyyx8"]
+
+[ext_resource type="PackedScene" uid="uid://cukfsh7buem62" path="res://Scenes/UI/on_screen_equipment_slot.tscn" id="1_om42a"]
+[ext_resource type="Script" path="res://Scripts/on_screen_ui.gd" id="1_psxvl"]
+[ext_resource type="StyleBox" uid="uid://bic55f1yy1d45" path="res://Resources/UI/health_bar_background.tres" id="2_mpebm"]
+[ext_resource type="StyleBox" uid="uid://dxsxruaj0abrc" path="res://Resources/UI/health_bar_fill.tres" id="3_fhktk"]
+
+[node name="OnScreenUI" type="CanvasLayer"]
+script = ExtResource("1_psxvl")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/margin_left = 8
+theme_override_constants/margin_top = 8
+theme_override_constants/margin_right = 8
+theme_override_constants/margin_bottom = 8
+
+[node name="ProgressBar" type="ProgressBar" parent="MarginContainer"]
+custom_minimum_size = Vector2(200, 16)
+layout_mode = 2
+size_flags_horizontal = 0
+theme_override_styles/background = ExtResource("2_mpebm")
+theme_override_styles/fill = ExtResource("3_fhktk")
+value = 100.0
+show_percentage = false
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 0
+size_flags_vertical = 8
+
+[node name="RightHandSlot" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_om42a")]
+unique_name_in_owner = true
+layout_mode = 2
+slot_name = "Right Hand"
+
+[node name="LeftHandSlot" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_om42a")]
+unique_name_in_owner = true
+layout_mode = 2
+slot_name = "Left Hand"
+
+[node name="PotionSlot" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_om42a")]
+unique_name_in_owner = true
+layout_mode = 2
+slot_name = "Potion"
+
+[node name="SpellSlot" parent="MarginContainer/HBoxContainer" instance=ExtResource("1_om42a")]
+unique_name_in_owner = true
+visible = false
+layout_mode = 2
+slot_name = "Spell"

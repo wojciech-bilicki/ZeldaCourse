@@ -1,0 +1,87 @@
+[gd_scene load_steps=6 format=3 uid="uid://cxtku3fjxnbd6"]
+
+[ext_resource type="Texture2D" uid="uid://b5wqsixkothn8" path="res://Assets/Sprites/HUD/Dialog/FacesetBox.png" id="1_0ww2d"]
+[ext_resource type="Script" path="res://Scripts/inventory_slot.gd" id="1_l15hn"]
+[ext_resource type="Theme" uid="uid://dd5r6f3470kpi" path="res://Resources/UI/theme.tres" id="3_n38ua"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sh76p"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.97216, 0, 0.0908118, 1)
+
+[sub_resource type="Theme" id="Theme_nsltb"]
+selected/base_type = &"Button"
+selected/styles/normal = SubResource("StyleBoxFlat_sh76p")
+
+[node name="InventorySlot" type="VBoxContainer"]
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_l15hn")
+
+[node name="NinePatchRect" type="NinePatchRect" parent="."]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 2
+texture = ExtResource("1_0ww2d")
+
+[node name="MenuButton" type="MenuButton" parent="NinePatchRect"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+item_count = 2
+popup/item_0/text = "Equip"
+popup/item_1/text = "Drop"
+popup/item_1/id = 1
+
+[node name="CenterContainer" type="CenterContainer" parent="NinePatchRect/MenuButton"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="NinePatchRect/MenuButton/CenterContainer"]
+custom_minimum_size = Vector2(40, 40)
+layout_mode = 2
+expand_mode = 2
+stretch_mode = 5
+
+[node name="OnClickButton" type="Button" parent="NinePatchRect"]
+custom_minimum_size = Vector2(60, 60)
+layout_mode = 0
+offset_right = 60.0
+offset_bottom = 60.0
+theme = SubResource("Theme_nsltb")
+
+[node name="StacksLabel" type="Label" parent="NinePatchRect"]
+layout_mode = 2
+anchor_left = 1.0
+anchor_top = 0.95
+anchor_right = 1.017
+anchor_bottom = 0.967
+offset_left = -25.0
+offset_top = -23.0
+offset_right = -6.02
+offset_bottom = -1.02
+theme = ExtResource("3_n38ua")
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+
+[node name="NameLabel" type="Label" parent="."]
+layout_mode = 2
+theme = ExtResource("3_n38ua")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PriceLabel" type="Label" parent="."]
+visible = false
+layout_mode = 2
+
+[connection signal="pressed" from="NinePatchRect/OnClickButton" to="." method="_on_on_click_button_pressed"]

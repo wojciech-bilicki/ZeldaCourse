@@ -1,0 +1,38 @@
+[gd_scene load_steps=6 format=3 uid="uid://25kihvx4hnua"]
+
+[ext_resource type="Texture2D" uid="uid://bt1bqog7rw5sd" path="res://Assets/Sprites/Actor/Characters/OldMan3/SpriteSheet.png" id="1_j01i6"]
+[ext_resource type="Theme" uid="uid://dd5r6f3470kpi" path="res://Resources/UI/theme.tres" id="2_lc41a"]
+[ext_resource type="Script" path="res://Scripts/merchant.gd" id="2_v611y"]
+[ext_resource type="PackedScene" uid="uid://cy7g4d1xn5307" path="res://Scenes/shopping_ui.tscn" id="4_5xggw"]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_s8ad3"]
+radius = 50.0
+
+[node name="Merchant" type="Sprite2D"]
+position = Vector2(-43, 16)
+texture = ExtResource("1_j01i6")
+region_enabled = true
+region_rect = Rect2(0, 0, 16, 16)
+script = ExtResource("2_v611y")
+items_to_buy = null
+
+[node name="Area2D" type="Area2D" parent="."]
+collision_layer = 128
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+shape = SubResource("CircleShape2D_s8ad3")
+
+[node name="Label" type="Label" parent="."]
+offset_left = -67.0
+offset_top = -36.0
+offset_right = 72.0
+offset_bottom = -13.0
+theme = ExtResource("2_lc41a")
+text = "PRESS M TO SHOP"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ShoppingUI" parent="." instance=ExtResource("4_5xggw")]
+
+[connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
+[connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
